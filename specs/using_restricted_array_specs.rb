@@ -1,7 +1,9 @@
-require 'minitest/autorun'
-require 'minitest/reporters'
-require_relative '../lib/restricted_array'
-require_relative '../lib/using_restricted_array'
+require "minitest/autorun"
+require "minitest/reporters"
+require_relative "../lib/restricted_array"
+require_relative "../lib/using_restricted_array"
+
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 describe "restricted array" do
   it "length method" do
@@ -171,7 +173,7 @@ describe "restricted array" do
     size.times do |i|
       my_integer_array[i] = i * 10
     end
-    value_to_find = (size/2) * 10
+    value_to_find = (size / 2) * 10
 
     binary_search(my_integer_array, size, value_to_find).must_equal true
   end
